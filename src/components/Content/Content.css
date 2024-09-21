@@ -1,0 +1,98 @@
+input[type="text"] {
+    height: 100%;
+    border: 0;
+    box-shadow: 0 0 1px #ccc;
+    font-size: 18px;
+    padding: 12px 10px;
+    font-weight: 400;
+    width: 100%;
+    margin-bottom: 10px;
+    outline-width: 0;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+  
+.module-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.module-table th,
+.module-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.module-table th {
+    color: #008ec4;
+    font-weight: bold;
+}
+
+.name {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination button.active{
+  background-color: #2188b6;
+}
+
+/* Mobile responsive styling */
+@media (max-width: 768px) {
+    .module-table, .module-table thead, 
+    .module-table tbody, .module-table th, 
+    .module-table td, .module-table tr {
+      display: block;
+    }
+  
+    /* Hide table headers on small screens */
+    .module-table thead tr {
+      display: none;
+    }
+  
+    /* Show each table row as a block */
+    .module-table tr {
+      margin-bottom: 15px;
+    }
+  
+    /* Style each table cell */
+    .module-table td {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 50%;
+      position: relative;
+      text-align: right;
+    }
+  
+    .module-table td::before {
+      content: attr(data-label); /* Adds the label from the column header */
+      position: absolute;
+      left: 0;
+      width: 50%;
+      padding-left: 15px;
+      font-weight: bold;
+      text-align: left;
+    }
+  
+    /* Assign data-labels for each column */
+    .module-table td:nth-of-type(1)::before {
+      content: "Name";
+    }
+  
+    .module-table td:nth-of-type(2)::before {
+      content: "Owner";
+    }
+  
+    .module-table td:nth-of-type(3)::before {
+      content: "Stars";
+    }
+}

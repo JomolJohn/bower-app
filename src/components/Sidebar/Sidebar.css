@@ -1,0 +1,20 @@
+.sidebar {
+    background-color: #f4f4f4;
+    width: 250px;
+    padding: 15px;
+}
+  
+.sidebar ul li a {
+    color: #00acee;
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+}
+  
+.sidebar-text {
+    margin-top: 30px;
+}
+  
+.sidebar-text p {
+    margin-top:10px;
+}

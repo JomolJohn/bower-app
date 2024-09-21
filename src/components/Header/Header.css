@@ -1,0 +1,34 @@
+.header {
+    background-color: #ffcc2f;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+h1 {
+    color: #543729;
+}
+
+.nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.nav li {
+    float: left;
+}
+
+.nav li a {
+    text-decoration: none;
+}
+
+.notification {
+    width: 100%;
+    text-align: center;
+    background-color: #2188b6;
+    color: white;
+    padding: 10px;
+}
