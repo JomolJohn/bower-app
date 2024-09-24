@@ -1,14 +1,14 @@
 .sidebar {
-    background-color: #f4f4f4;
-    width: 250px;
-    padding: 15px;
+    padding: 2em;
+    flex: 1;
 }
   
 .sidebar ul li a {
     color: #00acee;
-    font-size: 17px;
+    font-size: 19px;
     font-weight: bold;
-    text-decoration: none;
+    padding: .4em 0;
+    display: block;
 }
   
 .sidebar-text {
@@ -17,4 +17,22 @@
   
 .sidebar-text p {
     margin-top:10px;
+}
+.menu-btn {
+    display: block;
+    max-width: 170px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    text-align: center;
+    height: auto;
+    padding: 8px 20px 8px 20px;
+    margin: 20px auto;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: #00acee;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }

@@ -1,3 +1,5 @@
+import './Pagination.css';
+
 interface PaginationProps {
     totalPages: number;
     currentPage: number;
@@ -38,7 +40,6 @@ const Pagination = (props: PaginationProps) => {
                     }
                 }}
                 className={page === currentPage ? 'active' : ''}
-                style={{ margin: '0 5px', padding: '5px 10px' }}
                 disabled={typeof page === 'string'}
             >
                 {page}
@@ -52,7 +53,6 @@ const Pagination = (props: PaginationProps) => {
             <button
                 onClick={() => props.onPageChange(props.currentPage - 1)}
                 disabled={props.currentPage === 1}
-                style={{ padding: '5px 10px' }}
             >
                 Previous
             </button>
@@ -60,7 +60,6 @@ const Pagination = (props: PaginationProps) => {
             <button
                 onClick={() => props.onPageChange(props.currentPage + 1)}
                 disabled={props.currentPage === props.totalPages}
-                style={{ padding: '5px 10px' }}
             >
                 Next
             </button>

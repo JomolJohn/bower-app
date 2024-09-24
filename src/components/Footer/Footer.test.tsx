@@ -1,9 +1,13 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Footer from './Footer';
+import { FOOTER_TEXT } from '../../constants/constants';
 
-test('renders footer text', () => {
-  render(<Footer />);
-  const footerElement = screen.getByText(/© 2024 Lorem Ipsum is simply dummy text of the printing and typesetting industry./i);
-  expect(footerElement).toBeInTheDocument();
+describe('Footer', () => {
+    test('renders all footer text', () => {
+        render(<Footer />);
+
+        FOOTER_TEXT.forEach((text) => {
+            expect(screen.getByText(text)).toBeInTheDocument();
+        });
+    });
 });

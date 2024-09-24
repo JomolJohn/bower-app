@@ -7,7 +7,7 @@ interface SearchBarProps {
   
 const SearchBar = (props: SearchBarProps) => {
 
-    const [searchQuery, setSearchQuery] = useState('');
+    const [searchQuery, setSearchQuery] = useState<string>('');
     const [debouncedQuery, setDebouncedQuery] = useState<string>('');
 
     useEffect(() => {
@@ -22,18 +22,15 @@ const SearchBar = (props: SearchBarProps) => {
     }, [searchQuery]);
 
     useEffect(() => {
-        if (debouncedQuery) {
-            // only run when the user has stopped typing
-            props.onSearch(searchQuery);
-        }
-    }, [debouncedQuery]);
+        props.onSearch(debouncedQuery);
+    }, [debouncedQuery, props.onSearch]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
     };
 
     return (
-        <div>
+        <div className="search">
             <input 
                 type="text" 
                 value={searchQuery} 

@@ -1,34 +1,35 @@
 .header {
     background-color: #ffcc2f;
     color: white;
-    padding: 15px;
+    padding: 1em 0;
     text-align: center;
-}
-
-h1 {
     color: #543729;
 }
 
-.nav {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo {
+    width: 140px;
+    margin-right: 4em;
+}
+
+a:hover img.logo {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+img.logo {
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.page-title {
+    font-size: 64px;
     font-weight: bold;
-    font-size: 16px;
-}
-
-.nav li {
-    float: left;
-}
-
-.nav li a {
-    text-decoration: none;
-}
-
-.notification {
-    width: 100%;
-    text-align: center;
-    background-color: #2188b6;
-    color: white;
-    padding: 10px;
+    letter-spacing: -0.025em;
 }
