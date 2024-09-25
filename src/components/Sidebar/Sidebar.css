@@ -17,6 +17,7 @@
   
 .sidebar-text p {
     margin-top:10px;
+    margin-bottom: 0;
 }
 .menu-btn {
     display: block;
