@@ -1,4 +1,4 @@
-import { Module } from '../types/type';
+import { Module } from '../../types/type';
 import ModuleItem from './ModuleItem';
 import { LOADING_TEXT } from '../../constants/constants';
 

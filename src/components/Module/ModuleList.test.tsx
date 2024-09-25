@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import ModuleList from './ModuleList';
-import { Module } from '../types/type';
+import { Module } from '../../types/type';
 import { LOADING_TEXT, ERROR_TEXT } from '../../constants/constants';
 
 describe('ModuleList', () => {

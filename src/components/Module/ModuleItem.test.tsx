@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import ModuleItem from './ModuleItem';
-import { Module } from '../types/type';
+import { Module } from '../../types/type';
 
 // Mocking the react-icons to avoid dealing with actual icon rendering
 jest.mock('react-icons/fa', () => ({

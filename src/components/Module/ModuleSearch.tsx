@@ -4,7 +4,7 @@ import SearchBar  from '../Search/SearchBar';
 import ModuleList  from '../Module/ModuleList';
 import Pagination  from '../Pagination/Pagination';
 import { PER_PAGE, ERROR_TEXT } from '../../constants/constants';
-import { Module } from '../types/type';
+import { Module } from '../../types/type';
 import './Module.css';
 
 const ModuleSearch = () => {

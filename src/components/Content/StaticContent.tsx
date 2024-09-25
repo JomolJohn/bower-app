@@ -1,4 +1,4 @@
-import { StaticContentProps } from '../types/type';
+import { StaticContentProps } from '../../types/type';
 
 const StaticContent = ({ paragraphs }: StaticContentProps) => {
     return (
