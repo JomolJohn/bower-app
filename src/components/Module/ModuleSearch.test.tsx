@@ -93,14 +93,13 @@ describe('ModuleSearch', () => {
         // Wait for the loading state to finish
         await waitFor(() => expect(screen.queryByText(LOADING_TEXT)).not.toBeInTheDocument());
 
+        expect(screen.getByText('Module A')).toBeInTheDocument();
+
         // Check for pagination
         expect(screen.getByText(1)).toBeInTheDocument();
         expect(screen.getByText(2)).toBeInTheDocument();
 
-        // Simulate page click
-        fireEvent.click(screen.getByText(2));
-
-        // Mock the API response for the next page
+        // Mock the API response for the second page
         (searchModules as jest.Mock).mockResolvedValueOnce({
             data: [{ name: 'Module B', description: 'Description B', repository_url: '', homepage: '', stars: 5 }],
             headers: {
@@ -108,7 +107,8 @@ describe('ModuleSearch', () => {
             },
         });
 
-        render(<ModuleSearch />);
+        // page click to go to the second page
+        fireEvent.click(screen.getByText(2));
 
         // Wait for the loading state to finish
         await waitFor(() => expect(screen.queryByText(LOADING_TEXT)).not.toBeInTheDocument());

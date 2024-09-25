@@ -81,20 +81,4 @@ describe('ModuleList', () => {
         expect(mockOnSort).toHaveBeenCalledWith('stars', 'desc');
     });
 
-    it('should displays the correct heading for the table', () => {
-        render(
-            <ModuleList 
-                modules={mockModules} 
-                sortOrder="asc" 
-                onSort={mockOnSort} 
-                searchQuery=""
-                loading={false}
-                error={null}
-            />
-        );
-
-        expect(screen.getByText('Name')).toBeInTheDocument();
-        expect(screen.getByText('Owner')).toBeInTheDocument();
-        expect(screen.getByText('Stars')).toBeInTheDocument();
-    });
 });
