@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import ModuleList from './ModuleList';
-import { Module } from '../type';
+import { Module } from '../types/type';
+import { LOADING_TEXT, ERROR_TEXT } from '../../constants/constants';
 
 describe('ModuleList', () => {
     const mockOnSort = jest.fn();
@@ -14,13 +15,45 @@ describe('ModuleList', () => {
         jest.clearAllMocks();
     });
 
-    test('renders the list of modules', () => {
+    it('should renders loading state', () => {
+        render(
+          <ModuleList
+            modules={[]}
+            sortOrder="asc"
+            onSort={mockOnSort}
+            searchQuery=""
+            loading={true}
+            error={null}
+          />
+        );
+    
+        expect(screen.getByText(LOADING_TEXT)).toBeInTheDocument();
+    });
+
+    it('should renders error message', () => {
+        render(
+          <ModuleList
+            modules={[]}
+            sortOrder="asc"
+            onSort={mockOnSort}
+            searchQuery=""
+            loading={false}
+            error={ERROR_TEXT}
+          />
+        );
+    
+        expect(screen.getByText(ERROR_TEXT)).toBeInTheDocument();
+    });
+
+    it('should renders the list of modules ot loading or error', () => {
         render(
             <ModuleList 
                 modules={mockModules} 
                 sortOrder="asc" 
                 onSort={mockOnSort} 
                 searchQuery=""
+                loading={false}
+                error={null}
             />
         );
 
@@ -29,13 +62,15 @@ describe('ModuleList', () => {
         expect(screen.getByText('Module B')).toBeInTheDocument();
     });
 
-    test('calls onSort when the sort link is clicked', () => {
+    it('should calls onSort when the sort link is clicked', () => {
         render(
             <ModuleList 
                 modules={mockModules} 
                 sortOrder="asc" 
                 onSort={mockOnSort} 
                 searchQuery=""
+                loading={false}
+                error={null}
             />
         );
 
@@ -46,13 +81,15 @@ describe('ModuleList', () => {
         expect(mockOnSort).toHaveBeenCalledWith('stars', 'desc');
     });
 
-    test('displays the correct heading for the table', () => {
+    it('should displays the correct heading for the table', () => {
         render(
             <ModuleList 
                 modules={mockModules} 
                 sortOrder="asc" 
                 onSort={mockOnSort} 
                 searchQuery=""
+                loading={false}
+                error={null}
             />
         );
 

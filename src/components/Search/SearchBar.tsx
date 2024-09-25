@@ -23,7 +23,7 @@ const SearchBar = (props: SearchBarProps) => {
 
     useEffect(() => {
         props.onSearch(debouncedQuery);
-    }, [debouncedQuery, props.onSearch]);
+    }, [debouncedQuery, props]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);

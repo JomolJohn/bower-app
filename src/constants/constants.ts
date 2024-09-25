@@ -1,7 +1,6 @@
 export const API_KEY = '9ff25b3644ca5e8019fe58bd1670e746';
 export const API_URL = 'https://libraries.io/api';
 export const PER_PAGE = 5;
-export const TOTAL_COUNT = 1500;
 
 export const TITLE_TEXT = "Bower Search";
 export const TITLE_SUB_TEXT = "Powered by";
@@ -57,4 +56,4 @@ export const FOOTER_TEXT = [
 
 export const LOADING_TEXT = "Loading popular repositories...";
 
-export const ERROR_TEXT = "Failed to load data...";
+export const ERROR_TEXT = "Sorry, there was an error while fetching repositories";

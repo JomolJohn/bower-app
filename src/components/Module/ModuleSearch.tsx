@@ -3,8 +3,8 @@ import { searchModules } from '../../services/api';
 import SearchBar  from '../Search/SearchBar';
 import ModuleList  from '../Module/ModuleList';
 import Pagination  from '../Pagination/Pagination';
-import { PER_PAGE, TOTAL_COUNT, LOADING_TEXT, ERROR_TEXT } from '../../constants/constants';
-import { Module } from '../type';
+import { PER_PAGE, ERROR_TEXT } from '../../constants/constants';
+import { Module } from '../types/type';
 import './Module.css';
 
 const ModuleSearch = () => {
@@ -24,10 +24,9 @@ const ModuleSearch = () => {
             try {
                 const results = await searchModules(searchQuery, currentPage, PER_PAGE, sortKey);
                 setModules(results.data);
-                // api is not working as expected with the page and per_page value with the last page, 
-                // so giving a total count 1500 statically to work 5 per page with the pagination.
-                // const totalCount = parseInt(results.headers['total'], 10);
-                const totalCount = TOTAL_COUNT;
+                // api is not working as expected with the page and per_page value with the last page,
+                // with q='', per_page=5 and page=300 only returns data from api.
+                const totalCount = parseInt(results.headers['total'], 10);
                 setTotalResults(totalCount);
             } catch (error) {
                 setError(ERROR_TEXT);
@@ -52,23 +51,23 @@ const ModuleSearch = () => {
     return (
         <>
             <SearchBar onSearch={(q) => setSearchQuery(q)} />
-            {loading && <div className="loading">{LOADING_TEXT}</div>}
-            {error && <div className="error">{error}</div>}
-            {!loading && !error && (
-                <>
-                    <ModuleList 
-                        modules={modules} 
-                        onSort={handleSort}
-                        sortOrder={sortOrder}
-                        searchQuery={searchQuery}
-                    />
+            <>
+                <ModuleList 
+                    modules={modules} 
+                    onSort={handleSort}
+                    sortOrder={sortOrder}
+                    searchQuery={searchQuery}
+                    loading={loading}
+                    error={error}
+                />
+                {!loading && !error && (
                     <Pagination 
                         totalPages={totalPages} 
                         currentPage={currentPage} 
                         onPageChange={handlePageClick} 
                     />
-                </>
-            )}
+                )}
+            </>
         </>
     );
 };

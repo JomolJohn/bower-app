@@ -1,5 +1,5 @@
 import { FaHome } from "react-icons/fa";
-import { Module } from '../type';
+import { Module } from '../types/type';
 
 interface ModuleItemProps {
     module: Module;
