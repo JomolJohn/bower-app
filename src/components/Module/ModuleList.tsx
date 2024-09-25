@@ -22,8 +22,6 @@ const ModuleList = (props: ModuleListProps) => {
     onSort(sortKey, newSortOrder);
   };
 
-  console.log(sortOrder);
-
     return (
       <div className="table">
         <div className="row">
